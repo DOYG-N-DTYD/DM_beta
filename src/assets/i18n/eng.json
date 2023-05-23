@@ -1,0 +1,47 @@
+{
+    "CONSTDATA": {
+        "LOGOPAGENAME": "DrewMet",
+        "LOGOOWNERNAME": "Anton Paulau",
+        "NIP": "NIP: 5213888928",
+        "REGON": "REGON: 385428320",
+        "ADRES": {
+            "COUNTRY": "Poland",
+            "STREET": "Aleja Niepodległości 147",
+            "POSTALCODE": "02-555 Warszawa"
+        },
+        "TRANSACTIONSDATA": {
+            "BANK": "Millennium Bank S.A.",
+            "SWIFT": "SWIFT: BIGBPLPW",
+            "IBAN": "",
+            "EUR": "EUR: 45 1160 2202 0000 0004 6181 3308",
+            "PL": "PL:  27 1160 2202 0000 0004 5868 6837"
+        },
+        "CONTACTDATA": {
+            "EMAIL": "e-mail: antonpaulau@gmail.com",
+            "TELEPHONE": {
+                "PL": "(PL) (+48) 733 888 508 Telegram",
+                "BY": "(BY) (+375 29) 913 18 34  Viber, WhatsApp"
+            }
+        }
+    },
+
+    "MENU": {
+        "HOME": "Home",
+        "INFORMATION": "Information",
+        "INFORMATIONSUBMENU": {
+            "PAYMENTSANDDELIVERY": "Payments & delivery",
+            "ABOUTUS": "About company"
+        },
+        "LUMBER": "Lumber",
+        "LUMBERSUBMENU": {
+            "EDGED": "Edged lumber",
+            "UNEDGED": "Unedged lumber",
+            "PALLETBLANK": "A pallet blank",
+            "SPLITFIREWOOD": "Split firewood",
+            "SLABSAWDUST": "Slab/Sawdust"
+        },
+        "GALLERY": "Gallery",
+        "CONTACTS": "Contacts",
+        "LANGUAGES": "Languages"
+    }
+}

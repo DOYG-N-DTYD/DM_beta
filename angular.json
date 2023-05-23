@@ -4,6 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "DMmultilanguage": {
+      
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {

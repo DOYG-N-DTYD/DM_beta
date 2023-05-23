@@ -1,11 +1,85 @@
+
+
+$BottomColor: #28262a
+ul
+    list-style-type: none
+    padding: 10px
+li
+    color: #fff
+    font-size: 18px
+
+.bottom
+    //@media screen and ( max-width: 1020px )
+        //margin-top: 700px
+    //@include bgcolor($BottomColor) //bgcolor($BottomColor)                  //TODO: BottomColor from config.sass = #28262a
+    background-color: $BottomColor
+    //@include w-h-size(auto,450px)  
+    display: grid
+    justify-content: center
+    @media screen and ( min-width: 1000px )
+        grid-template-columns: 1fr 10fr 1fr
+    @media screen and ( max-width: 460px )                  // > 1332 1 бокса в боттоме
+        //margin-top: 1100px
+
+    ul
+        li
+            &:hover                 // ПЕРЕДЕЛАТЬ ПОД ССЫЛКИ !!!!!!!!!!!
+                color: #D5B45B
+                cursor: pointer
+            a
+                text-decoration: none
+                color: #fff
+                &:hover
+                    color: #D5B45B
+.information-g
+    display: grid
+    @media screen and ( min-width: 1332px )                 // > 1332 3 бокса в боттоме
+        grid-template-columns: 1fr 1fr 1fr
+    @media screen and ( max-width: 1331px )                 // > 1332 2 бокса в боттоме
+        grid-template-columns: 1fr 1fr
+    @media screen and ( max-width: 982px )                  // > 1332 1 бокса в боттоме
+        grid-template-columns: 1fr
+
+    padding: 60px
+    text-decoration: none
+    line-height: 1.4
+
+.information-g
+    > div
+        //@include bgcolor($DivForChange)
+        //@include w-h-size(300px,100px) 
+        //@extend %b-b-c 
+
+.left_side,.right_side
+    @media screen and ( max-width: 1000px  )                            // если меньше тысячи то выключаю бока
+        display: none
+    //background-color: #ac2222
+//1
+.inf-box1
+    @media screen and ( max-width: 1332px )
+        display: none
+//2
+.inf-box2
+//2-1
+.inf-box2-1
+//2-2
+.inf-box2-2
+//2-2-2
+.inf-box2-2-1
+//3
+.inf-box3
+//4     
+//all parts
+    
+    
 .copyright
     background-color: #28262a
     text-align: center
     font-size: 10px
 //Gallery style   
-.container
-    img
-        opacity: 0.8
-        &:hover
-            opacity: 1
-            //transition: 0.1s  
+// .container
+//     img
+//         opacity: 0.8
+//         &:hover
+//             opacity: 1
+//             //transition: 0.1s  

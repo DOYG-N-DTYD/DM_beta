@@ -1,42 +1,53 @@
-<header>     
-    <a href="" class="logo"><h1>DrewMet</h1></a>
-    <a href="" class="NameLastN">ANTON PAULAU</a>
+<header>
+    <a href="" class="logo">
+        <h1>{{logoPageName}}</h1>
+    </a>
+    <a href="" class="logoOwnerName">{{logoOwnerName}}</a>
     <nav>
         <ul class="topmenu">
-            <li><a href="">Home</a></li>
-            <li><a href="">Information</a>
+            <li><a routerLink="/test">"TEST PAGE"</a></li>
+            <li><a routerLink="/" routerLinkActive="active-link">{{"MENU.HOME" | translate}}</a></li>
+            <li><a href="">{{"MENU.INFORMATION" | translate}}</a>
                 <ul class="submenu">
-                    <li><a href="pages/EN/page_orderBuy.html">Payment and delivery</a></li>
-                    <li><a href="pages/EN/page_about.html">About us</a></li>                        
-                </ul> 
-            </li>
-            <li><a href="">Lumber</a>
-                <ul class="submenu">
-                    <li><a href="pages/EN/page1.html">Edged lumber</a></li>
-                    <li><a href="pages/EN/page2.html">Unedged lumber</a></li>
-                    <li><a href="pages/EN/page3.html">A pallet blank</a></li>
-                    <li><a href="pages/EN/page4.html">Split firewood</a></li>
-                    <li><a href="pages/EN/page5.html">Slab/Sawdust</a></li> 
-                    
+                    <li><a href="pages/EN/page_orderBuy.html">{{"MENU.INFORMATIONSUBMENU.PAYMENTSANDDELIVERY" |
+                            translate}}</a></li>
+                    <li><a href="pages/EN/page_about.html">{{"MENU.INFORMATIONSUBMENU.ABOUTUS" | translate}}</a></li>
                 </ul>
             </li>
-            <li><a href="pages/EN/page_products.html" class="submenu-link">Gallery</a> </li>
-            <li><a href="pages/EN/page_contact.html">Contacts</a></li>  
+            <li><a href="">{{"MENU.LUMBER" | translate}}</a>
+                <ul class="submenu">
+                    <li><a href="pages/EN/page1.html">{{"MENU.LUMBERSUBMENU.EDGED" | translate}}</a></li>
+                    <li><a href="pages/EN/page2.html">{{"MENU.LUMBERSUBMENU.UNEDGED" | translate}}</a></li>
+                    <li><a href="pages/EN/page3.html">{{"MENU.LUMBERSUBMENU.PALLETBLANK" | translate}}</a></li>
+                    <li><a href="pages/EN/page4.html">{{"MENU.LUMBERSUBMENU.SPLITFIREWOOD" | translate}}</a></li>
+                    <li><a href="pages/EN/page5.html">{{"MENU.LUMBERSUBMENU.SLABSAWDUST" | translate}}</a></li>
+
+                </ul>
+            </li>
+            <li><a href="pages/EN/page_products.html" class="submenu-link">{{"MENU.GALLERY" | translate}}</a> </li>
+            <li><a href="pages/EN/page_contact.html">{{"MENU.CONTACTS" | translate}}</a></li>
+            <li><a>{{"MENU.LANGUAGES" | translate}}</a>
+                <ul class="submenu">
+                    <li><a (click)="translate.use('eng')">{{languageEnglish}}</a></li>
+                    <li><a (click)="translate.use('pl')">{{languagePolish}}</a></li>
+                    <li><a (click)="translate.use('rus')">{{languageRussian}}</a></li>
+                </ul>
+            </li>
         </ul>
 
         <ul class="mobile_menu">
-            <li><a href="/pages/EN/page1.html">Edged lumber</a></li>
-            <li><a href="/pages/EN/page2.html">Unedged lumber</a></li>
-            <li><a href="/pages/EN/page3.html">A pallet blank</a></li>
-            <li><a href="/pages/EN/page4.html">Split firewood</a></li>
-            <li><a href="/pages/EN/page5.html">Slab / Sawdust</a></li> 
-            <li><a href="/pages/EN/page_contact.html">Contacts</a></li>
-            <li><a href="/pages/EN/page_orderBuy.html">Payment and delivery</a></li>
-            <li><a href="/pages/EN/page_products.html" class="submenu-link">Gallery</a> </li>
-            <li><a href="/pages/EN/page_about.html">About us</a></li>  
-        
+            <li><a href="pages/EN/page1.html">{{menuEdgedLumber}}</a></li>
+            <li><a href="pages/EN/page2.html">{{menuUnEdgedLumber}}</a></li>
+            <li><a href="pages/EN/page3.html">{{menuPalletBlank}}</a></li>
+            <li><a href="pages/EN/page4.html">{{menuSplitFirewood}}</a></li>
+            <li><a href="pages/EN/page5.html">{{menuSlabSawdust}}</a></li>
+            <li><a href="/pages/EN/page_contact.html">{{menuContacts}}</a></li>
+            <li><a href="/pages/EN/page_orderBuy.html">{{menuPaymentAndDelivery}}</a></li>
+            <li><a href="/pages/EN/page_products.html" class="submenu-link">{{menuGallery}}</a> </li>
+            <li><a href="/pages/EN/page_about.html">{{menuAboutUs}}</a></li>
+
         </ul>
 
-    </nav>  
-    
-</header>   
+    </nav>
+
+</header>

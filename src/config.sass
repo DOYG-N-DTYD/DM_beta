@@ -1,12 +1,43 @@
+*
+    margin: 0
+    padding: 0
+body
+    min-width: 340px
+ul                          //header.component.sass
+    list-style-type: none
+    padding: 10px
+li                          //header.component.sass
+    text-align: left
+a                           //header.component.sass
+    text-decoration: none
+    color: #666
+p
+    text-decoration: none
+    //color: #000000
+//MIXINS
+@mixin bgcolor($clr)
+    background-color: $clr
+@mixin w-h-size($wdth,$hght)
+    width: $wdth
+    height: $hght
+
+
 //--------------------------------MAIN
-$TopColor       : #319b31
-$MidColor       : #e6764a
-$BottomColor    : #28262a
+$TopColor: #319b31
+$MidColor: #e6764a
+$BottomColor: #28262a
 
 //Logo
-$LogoColor      : #d5b45b
-$LogoFontSize   : 2.5em
+$LogoColor: #d5b45b
+$LogoFontSize: 2.5em
 //--------------------------------MENU
 
 //--------------------------------TEMP FOR CHANGE IN FUTURE
-$DivForChange   : #ff75d1
+$DivForChange: #ff75d1
+
+// //MIXINS
+// @mixin bgcolor($clr)
+//     background-color: $clr
+// @mixin w-h-size($wdth,$hght)
+//     width: $wdth
+//     height: $hght

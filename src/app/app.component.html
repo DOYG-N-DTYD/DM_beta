@@ -1,4 +1,4 @@
-<div>app.component.html</div>
+<!-- <div>app.component.html</div>
 
 <div class="navigation">
   <li> <a routerLink="/">main</a></li> 
@@ -10,7 +10,15 @@
   <router-outlet></router-outlet>
 </div>
 
-<h1>#######################################################</h1>
+<h1>#######################################################</h1> -->
+<h1>{{'HOME.TITLE' | translate}}</h1>
+<button (click)="translate.use('rus')">{{'BUTTON.LANG.RU' | translate}}</button>
+<button (click)="translate.use('eng')">{{'BUTTON.LANG.EN' | translate}}</button>
+<input type="text" (change)="onChangeName($event)">
+<p>{{'HOME.WELCOME' | translate: {name: nameComponent} }}</p>
+
 <app-header></app-header>
-<app-central></app-central>
+<router-outlet></router-outlet>
+
+<!-- <app-central></app-central> -->
 <app-footer></app-footer>

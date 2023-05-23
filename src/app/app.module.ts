@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -8,10 +11,16 @@ import { TestPageComponent } from './test-page/test-page.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CentralComponent } from './central/central.component';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { LanguageInterceptor } from './interceptors/language.interceptor';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 const routes = [
-  {path: '', component: HomePageComponent},
-  {path: 'test', component: TestPageComponent}
+  { path: '', component: HomePageComponent },
+  { path: 'test', component: TestPageComponent }
 ];
 
 @NgModule({
@@ -20,14 +29,32 @@ const routes = [
     HomePageComponent,
     TestPageComponent,
     HeaderComponent,
-    FooterComponent,
-    CentralComponent
+    CentralComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    //TranslateModule.forRoot(),
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }, defaultLanguage: 'rus'
+      }
+    )
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptor,
+      multi: true
+    }, HttpClient
+  ],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
