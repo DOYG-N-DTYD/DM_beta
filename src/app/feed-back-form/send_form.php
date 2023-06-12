@@ -10,4 +10,5 @@
     mail($to, $tema, $message, $headers); //отправляет получателю на емайл значения переменных
     header("Location: https://mzdev.webd.pro");
     die();
+    //TEST
 ?>
