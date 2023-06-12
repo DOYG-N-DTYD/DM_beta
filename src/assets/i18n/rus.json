@@ -42,5 +42,12 @@
         "GALLERY": "Галерея",
         "CONTACTS": "Контакт",
         "LANGUAGES": "Язык"
+    },
+    "FEEDBACKFORM":{
+        "NAME":"Имя",
+        "EMAIL":"E-mail",
+        "MESSAGE":"Сообщение",
+        "ENTER":"Введите",
+        "SEND":"Отправить"
     }
 }

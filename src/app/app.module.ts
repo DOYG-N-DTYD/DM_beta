@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CentralComponent } from './central/central.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { LanguageInterceptor } from './interceptors/language.interceptor';
+import { FeedBackFormComponent } from './feed-back-form/feed-back-form.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -30,7 +31,8 @@ const routes = [
     TestPageComponent,
     HeaderComponent,
     CentralComponent,
-    FooterComponent
+    FooterComponent,
+    FeedBackFormComponent
   ],
   imports: [
     BrowserModule,

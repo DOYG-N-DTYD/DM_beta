@@ -42,5 +42,12 @@
         "GALLERY": "Zdjęcia",
         "CONTACTS": "Kontakt",
         "LANGUAGES": "Język"
+    },
+    "FEEDBACKFORM":{
+        "NAME":"Imię",
+        "EMAIL":"E-mail",
+        "MESSAGE":"Wiadomość",
+        "ENTER":"Wprowadzić",
+        "SEND":"Wysłać"
     }
 }

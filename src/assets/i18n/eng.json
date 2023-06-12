@@ -43,5 +43,12 @@
         "GALLERY": "Gallery",
         "CONTACTS": "Contacts",
         "LANGUAGES": "Languages"
+    },
+    "FEEDBACKFORM":{
+        "NAME":"Name",
+        "EMAIL":"E-mail",
+        "MESSAGE":"Message",
+        "ENTER":"Enter",
+        "SEND":"Send"
     }
 }
