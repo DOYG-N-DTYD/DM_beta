@@ -25,7 +25,7 @@
                 </ul>
             </li>
             <li><a href="pages/EN/page_products.html" class="submenu-link">{{"MENU.GALLERY" | translate}}</a> </li>
-            <li><a href="pages/EN/page_contact.html">{{"MENU.CONTACTS" | translate}}</a></li>
+            <li><a routerLink="/contact">{{"MENU.CONTACTS" | translate}}</a></li>
             <li><a>{{"MENU.LANGUAGES" | translate}}</a>
                 <ul class="submenu">
                     <li><a (click)="translate.use('eng')">{{languageEnglish}}</a></li>
@@ -41,7 +41,7 @@
             <li><a href="pages/EN/page3.html">{{menuPalletBlank}}</a></li>
             <li><a href="pages/EN/page4.html">{{menuSplitFirewood}}</a></li>
             <li><a href="pages/EN/page5.html">{{menuSlabSawdust}}</a></li>
-            <li><a href="/pages/EN/page_contact.html">{{menuContacts}}</a></li>
+            <li><a href="/pages/EN/page_contact.html">{{menuContacts}}</a></li> <!-- TODO /contact--> 
             <li><a href="/pages/EN/page_orderBuy.html">{{menuPaymentAndDelivery}}</a></li>
             <li><a href="/pages/EN/page_products.html" class="submenu-link">{{menuGallery}}</a> </li>
             <li><a href="/pages/EN/page_about.html">{{menuAboutUs}}</a></li>

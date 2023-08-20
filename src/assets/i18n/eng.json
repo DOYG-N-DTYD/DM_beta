@@ -44,6 +44,56 @@
         "CONTACTS": "Contacts",
         "LANGUAGES": "Languages"
     },
+    "CENTRALCOMPONENT": {
+        "TITLE": "Sale and production of lumber",
+        "COLUMN_1" :{
+            "TITLE":{
+                "DATA_1":"International",
+                "DATA_2":"company"
+            },
+            "TEXT":{
+                "DATA_1":"Dynamically",
+                "DATA_2":"developing company, the priority of which is the sale and production of lumber in: "
+            },
+            "COUNTRIES":{
+                "DATA_1":"USA",
+                "DATA_2":"Europe",
+                "DATA_3":"And other countries "
+            }
+        },
+        "COLUMN_2" :{
+            "TITLE":{
+                "DATA_1":"Wide",
+                "DATA_2":"selection"
+            },
+            "TEXT":{
+                "DATA_1":"High-quality",
+                "DATA_2":"lumber, longitudinally, edged, unedged of various timber/wood species:"
+            },
+            "LUMBER":{
+                "DATA_1":"Pine",
+                "DATA_2":"Birch",
+                "DATA_3":"Aspen",
+                "DATA_4":"Alder",
+                "DATA_5":"Spruce",
+                "DATA_6":"And other"
+            }
+        },
+        "COLUMN_3" :{
+            "TITLE":{
+                "DATA_1":"Высокое",
+                "DATA_2":"качество"
+            },
+            "TEXT":{
+                "DATA_1":"Выпускаемая продукция соответствует ",
+                "DATA_2":"ГОСТам",
+                "DATA_3":"и имеет",
+                "DATA_4":"сертификат",
+                "DATA_5":"собственного производства. Распиловка круглого леса осуществляется специалистами на ",
+                "DATA_6":"современном оборудовании"
+            }
+        }
+    },
     "FEEDBACKFORM":{
         "NAME":"Name",
         "EMAIL":"E-mail",

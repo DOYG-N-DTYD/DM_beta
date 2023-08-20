@@ -20,8 +20,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 const routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'test', component: TestPageComponent }
+  // { path: '', component: HomePageComponent },
+  { path: 'test', component: TestPageComponent },
+  { path: '', component: CentralComponent },
+  { path: 'contact', component: FeedBackFormComponent }
 ];
 
 @NgModule({

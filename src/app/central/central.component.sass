@@ -1,1 +1,134 @@
+.top
+    //@include bgcolor($TopColor)
+    margin-top: 40px
+    widht: auto
+    height: 0px
 
+    @media screen and ( min-width: 1001px )
+        display: grid
+        grid-template-columns: 1fr 2fr 1fr
+.title
+    margin-bottom: 75px
+    padding: 15px
+    @media screen and ( min-width: 757px ) and (max-width: 999px)
+        text-align: center
+        font-size: 52px
+    @media screen and ( max-width:  756px)
+        display: none
+        text-align: center
+        line-height: 1.4
+        position: relative
+    //display: inline-block off for EN version
+        font-size: 62px
+        color: #d5b45b
+        line-height: 1em
+        font-weight: 600
+    //color: transparent        ?????????
+        cursor: default
+        -webkit-text-stroke: 1px #353535
+        transition: all 0.2s ease-in-out
+        transition: 1s
+.information
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    justify-content: center
+    @media screen and ( max-width: 1000px )                         // Если < 1000 То позиция вертикальная у информационных боксов
+        grid-template-columns: 1fr
+
+    @media screen and ( min-width: 1330px )                         // Если > 1330 gap = 150px
+        grid-gap: 150px
+    @media screen and ( max-width: 1329px )                         // Если < 1329 gap = 10px
+        grid-gap: 10px
+        margin-top: 100px
+    //width: 50%
+        margin: 0 auto
+        transition: 2s
+    li
+        list-style-type: disc
+        margin-bottom: 10px
+        margin-left: 10px
+.inf-box-1,.inf-box-2,.inf-box-3
+    //display: grid                                         //temp
+    @media screen and ( min-width: 460px )
+        grid-template-rows: 1fr 5fr
+        justify-self: center
+    @media screen and ( min-width: 459px )
+        width: 300px
+    //height: 250px
+
+.inf-box-1-up,.inf-box-2-up,.inf-box-3-up
+    display: grid //temp
+    grid-template-columns: 2fr 5fr
+    background-image: linear-gradient(180deg, rgb(48, 47, 49), #302f31)
+    height: 80px
+    border-radius: 5px
+.inf-box-1-up-left,.inf-box-2-up-left,.inf-box-3-up-left
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    img
+        opacity: 0.8
+        height: 55%
+        width: 50%
+        &:hover
+            transition: 0.4s
+            opacity: 1
+
+            text-align: center
+            font-size: 50px
+            line-height: 1.4
+            position: relative
+            display: inline-block
+            font-size: 72px
+            color: rgb(213, 180, 91)
+            line-height: 1em
+            font-weight: 600
+    //color: transparent        ?????????
+            cursor: default
+            -webkit-text-stroke: 1px rgb(53, 53, 53)
+            transition: all 0.2s ease-in-out
+
+.inf-box-1-up-right,.inf-box-2-up-right,.inf-box-3-up-right
+    padding: 8px
+    text-align: center
+    font-size: 50px
+    line-height: 1.4
+    position: relative
+    display: inline-block
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    font-size: 25px
+    color: rgb(213, 180, 91)
+    line-height: 1em
+    font-weight: 600
+    //color: transparent        ?????????
+    cursor: default
+    -webkit-text-stroke: 1px #353535
+    transition: all 0.2s ease-in-out
+
+.inf-box-1-down,.inf-box-2-down,.inf-box-3-down
+    //background-color: #a3a53e  
+    text-align: justify
+    //text-align: center
+    margin-top: 20px
+    font-size: 1.5em
+.inf-box-2-down-L
+    display: grid
+    grid-template-columns: 1fr 1fr
+//--------------------------------mid of the page
+.mid_460px
+    @media screen and ( min-width: 461px )
+        display: none
+.mid
+    @media screen and ( max-width: 460px )
+        display: none
+        display: grid
+    @media screen and ( min-width: 1001px )
+        grid-template-columns: 1fr 1fr 1fr
+        margin-top: 150px
+    @media screen and ( max-width: 1000px )
+        margin-top: 550px
