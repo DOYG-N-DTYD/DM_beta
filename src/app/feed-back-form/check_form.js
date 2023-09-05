@@ -1,4 +1,4 @@
-
+console.log("check_form.js START");  
 let form = document.querySelector('.BMD');
 let SendBtn = form.querySelector('.SendBtn');
 

@@ -15,6 +15,9 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { LanguageInterceptor } from './interceptors/language.interceptor';
 import { FeedBackFormComponent } from './feed-back-form/feed-back-form.component';
 
+import { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -49,7 +52,8 @@ const routes = [
           deps: [HttpClient]
         }, defaultLanguage: 'rus'
       }
-    )
+    ),
+    FormsModule // for forms and [(ngModel)]
   ],
   providers: [
     {
@@ -61,4 +65,4 @@ const routes = [
   bootstrap: [AppComponent],
 
 })
-export class AppModule { }
+export class AppModule {}
