@@ -9,15 +9,19 @@ import { EmailSenderServiceService } from '../services/email-sender-service.serv
 })
 
 export class FeedBackFormComponent {
-  posts : any; //##??
+  private baseUrl = "http://localhost:8080/";
+  private simpleEmailEndPoint = "simple-email/";
+  private emailReciever = "testordersender@mzdev.webd.pro";
+  
+  responseFromService : any; //##??
 
   constructor(private emailService: EmailSenderServiceService) { }
 
-  ngOnInit() {
-    this.emailService.getPosts().subscribe(
-    (response) => { this.posts = response; },
-    (error) => { console.log(error); });
-  }
+  // ngOnInit() {
+  //   this.emailService.sendEmail().subscribe(
+  //   (response) => { this.responseFromService = response; },
+  //   (error) => { console.log(error); })
+  // }
 
   feedBackForm: any = {
       name: '',
@@ -26,14 +30,15 @@ export class FeedBackFormComponent {
   };
 
   validateForm(){
-    console.log(this.feedBackForm.name);
-    console.log("VALIDATION " + this.feedBackForm);
+    console.log("IN DATA NAME EMAIL TEXT"+this.feedBackForm.name + " " + this.feedBackForm.email +  " " + this.feedBackForm.text );
     let pattern = new RegExp('^[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$');
     if (this.feedBackForm.name && this.feedBackForm.email && this.feedBackForm.text && pattern.test(this.feedBackForm.email)) {
-      //alert("Data ok, message will be sent to website"); // ##??
-      this.emailService.sendEmail();
+      console.log("Data ok, message will be sent to website" + " URL: " + this.baseUrl+this.simpleEmailEndPoint+this.emailReciever); // ##??
+      this.emailService.sendEmail(this.baseUrl+this.simpleEmailEndPoint+this.emailReciever).subscribe(
+        (response) => { this.responseFromService = response; },
+        (error) => { console.log(error); });
     }else{
-      alert("fill all fields and check email address"); // ##?? 
+      console.log("fill all fields and check email address"); // ##?? 
     }
   }
 }
