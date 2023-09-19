@@ -6,10 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmailSenderServiceService {
-
   constructor(private httpClient: HttpClient) { }
 
   sendEmail(urlAddress: String):Observable<any>{
-    return this.httpClient.put(`${urlAddress}`,"test text");
+    return this.httpClient.put<any>(`${urlAddress}`,"PUT_REQUEST_BODY");
   }
 }
