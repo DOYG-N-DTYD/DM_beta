@@ -48,6 +48,9 @@
         "EMAIL":"E-mail",
         "MESSAGE":"Wiadomość",
         "ENTER":"Wprowadzić",
-        "SEND":"Wysłać"
+        "SEND":"Wysłać"},
+        "ERRORMESSAGE":{
+            "NAME":"Pole Imię nie może być puste",
+            "EMAIL":"Email nieprawidłowy lub jest pusty"
+        }
     }
-}

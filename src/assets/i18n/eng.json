@@ -99,6 +99,9 @@
         "EMAIL":"E-mail",
         "MESSAGE":"Message",
         "ENTER":"Enter",
-        "SEND":"Send"
-    }
+        "SEND":"Send"},
+        "ERRORMESSAGE":{
+            "NAME":"Fill name field",
+            "EMAIL":"Email wrong or empty"
+        }
 }

@@ -1,28 +1,15 @@
 <div class="FormFB">
-    <form id="BMD" class="BMD" name="BMD" action="" method="POST"> <!-- ACTIONS ##?? -->
+    <form id="BMD" class="BMD" name="BMD" action="" method="POST">
         <label>{{"FEEDBACKFORM.NAME" | translate}}</label>
-        <input id ="nameBMD" class="nameBMD field" type="text" [(ngModel)]="feedBackForm.name" name="nameBMD" placeholder="{{'FEEDBACKFORM.ENTER' | translate}} {{'FEEDBACKFORM.NAME' | translate}}"><br>
+        <input id="nameBMD" class="nameBMD field" type="text" [(ngModel)]="feedBackForm.name" name="nameBMD"
+            placeholder="{{'FEEDBACKFORM.ENTER' | translate}} {{'FEEDBACKFORM.NAME' | translate}}"><br>
         <label>{{"FEEDBACKFORM.EMAIL" | translate}}</label>
-        <input id="emailBMD" class="emailBMD field" type="email" [(ngModel)]="feedBackForm.email" name="emailBMD" placeholder="{{'FEEDBACKFORM.ENTER' | translate}} {{'FEEDBACKFORM.EMAIL' | translate}}"><br>
+        <input id="emailBMD" class="emailBMD field" type="email" [(ngModel)]="feedBackForm.email" name="emailBMD"
+            placeholder="{{'FEEDBACKFORM.ENTER' | translate}} {{'FEEDBACKFORM.EMAIL' | translate}}"><br>
         <label>{{"FEEDBACKFORM.MESSAGE" | translate}}</label>
         <textarea class="messageBMD field" name="messageBMD" [(ngModel)]="feedBackForm.text" cols="30" rows="10"
             placeholder="{{'FEEDBACKFORM.ENTER' | translate}} {{'FEEDBACKFORM.MESSAGE' | translate}}"></textarea><br>
-        
-            <!-- <button id="submit" class="submit" type="submit" (click)="printForm() name="send" value="{{'FEEDBACKFORM.SEND' | translate}}">
-                {{'FEEDBACKFORM.SEND' | translate}}</button> -->
-            <button id="submit" class="submit" type="submit" (click)="validateForm() ">{{'FEEDBACKFORM.SEND' | translate}}</button>
-        <!-- <script src="check_form.js"></script> -->
+        <button id="submit" class="submit" type="submit" (click)="validateForm() ">{{'FEEDBACKFORM.SEND' |
+            translate}}</button>
     </form>
 </div>
-<!-- <form>
-    <div>
-        <label>Логин</label>
-        <input type="text" [(ngModel)]="loginForm.login" required name="login" />
-    </div>
-    <div>
-        <label>Пароль</label>
-        <input type="password" [(ngModel)]="loginForm.password" required name="password" />
-    </div>
-
-    <button (click)="printForm()">Войти</button>
-</form> -->

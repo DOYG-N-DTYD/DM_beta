@@ -1,7 +1,9 @@
+//change translation of errors in DOM html manipulations
+
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EmailSenderServiceService } from '../services/email-sender-service.service';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-feed-back-form',
   templateUrl: './feed-back-form.component.html',
@@ -15,12 +17,9 @@ export class FeedBackFormComponent {
 
   responseFromService : any; //##??
 
-  constructor(private emailService: EmailSenderServiceService) { 
-    //nameBmdInput: HTMLElement; 
-    //emailBmdInput: HTMLElement;
+  constructor(private emailService: EmailSenderServiceService, public translate: TranslateService) { 
+    
   }
-  //nameBmdInput: HTMLElement = document.getElementById('nameBMD') as HTMLElement;
-  //emailBmdInput: HTMLElement = document.getElementById('emailBMD') as HTMLElement;
 
   feedBackForm: any = {
       name: '',
@@ -43,7 +42,7 @@ export class FeedBackFormComponent {
     let nameBmdInput = document.getElementById('nameBMD') as HTMLElement;
     let acceptOrError : boolean;
     this.feedBackForm.name ? acceptOrError = true : acceptOrError = false;
-    this.changeStyleAfterChecking(nameBmdInput,acceptOrError,"Fill name field");
+    this.changeStyleAfterChecking(nameBmdInput,acceptOrError,'FEEDBACKFORM.ERRORMESSAGE.NAME'); // {{'FEEDBACKFORM.ERRORMESSAGE.NAME' | translate}}"
     return acceptOrError;
   }
   checkEmail(){
@@ -51,7 +50,7 @@ export class FeedBackFormComponent {
     let pattern = new RegExp('^[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$');
     let acceptOrError : boolean;
     this.feedBackForm.email && pattern.test(this.feedBackForm.email) ? acceptOrError = true : acceptOrError = false;
-    this.changeStyleAfterChecking(emailBmdInput,acceptOrError,"Email wrong or empty");
+    this.changeStyleAfterChecking(emailBmdInput,acceptOrError,'FEEDBACKFORM.ERRORMESSAGE.EMAIL'); // {{'FEEDBACKFORM.ERRORMESSAGE.EMAIL' | translate}}"
     return acceptOrError;
   }
   changeStyleAfterChecking(divForChange: HTMLElement, changeTrueOrFalse: boolean, errorMessage: string){

@@ -17,6 +17,7 @@ import { FeedBackFormComponent } from './feed-back-form/feed-back-form.component
 
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ChatComponent } from './chat/chat.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -37,7 +38,8 @@ const routes = [
     HeaderComponent,
     CentralComponent,
     FooterComponent,
-    FeedBackFormComponent
+    FeedBackFormComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
