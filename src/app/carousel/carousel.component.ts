@@ -6,61 +6,98 @@ import { Component } from '@angular/core';
   styleUrls: ['./carousel.component.sass']
 })
 export class CarouselComponent {
-  //let carouselImages: Array<any> = [];
-  public err: any;
-  public container:any;
+  public carouselImages: any;
+  public imageInCourusel: any;
+  public imagesInCourusel: any;
+  public pathsToImageInCourusel: string[] = [
+    '/assets/images/Products/balka.jpg',
+    '/assets/images/Products/brusok.jpg',
+    '/assets/images/Products/drova.jpg',
+    '/assets/images/Products/gorbil.jpg',
+    '/assets/images/Products/nerdoska.jpg',
+    '/assets/images/Products/opilki.jpg',
+    '/assets/images/Products/palet.jpg',
+    '/assets/images/Products/rdoska.jpg'
+  ];
+  public containerWithImages: any;
+  public carousel: any;
+
   constructor() { }
 
-  leftArrow() {
-    return document.getElementById('carouselLeft') as HTMLElement;
-  }
-  rightArrow() {
-    return document.getElementById('carouselRight') as HTMLElement;
-  }
-  carouselImages() {
-    return document.getElementsByTagName('img');
-  }
-  carouselContainer() {
-    return document.getElementsByClassName('container');
-  }
+  leftArrow() {return document.getElementById('carouselLeft') as HTMLElement;}
+  rightArrow() {return document.getElementById('carouselRight') as HTMLElement;}
+  container() {return document.getElementsByClassName('container');}
   imageLeftClick() {
     console.log("Left click");
     console.log(this.leftArrow());
   }
-  imageRightClick() {
+
+  ngOnInit(){
     let imageWidth: number = 300;
-    let imageHeight: number = 300;
-    let marginLeft: number = 10;
-    //console.log(document.getElementsByClassName('container')[0].childNodes);
-    let imagesList: NodeListOf<ChildNode> = document.getElementsByClassName('container')[0].childNodes;
-    // List.forEach(values, function(value, key)){});
-    imagesList.forEach(function (currentValue, currentIndex, listObj) {
-      //console.log(`${currentValue}, ${currentIndex}`);
-      // console.log(currentValue); //300px
-      // currentValue
+
+    this.containerWithImages = document.getElementById('container') as HTMLDivElement;
+    this.carousel = document.getElementById('carousel') as HTMLDivElement;
+
+    this.imagesInCourusel = this.initFIFOforImages();
+    
+    var intervalID = setInterval(() => {
+      let tempImageObg = this.imagesInCourusel.shift(); //this.imageInCourusel
+      this.containerWithImages.appendChild(tempImageObg);//this.imageInCourusel);
+      this.containerWithImages.setAttribute("style", "width:" + (this.containerWithImages.offsetWidth - imageWidth) + "px"); //containerWithImagesWidth - imageWidth first time
+      this.moveImage(tempImageObg);
+    },3500)
+  }
+
+  
+  initFIFOforImages() {
+    var arrayOfDivsWithImages: HTMLElement[] = [];
+    this.pathsToImageInCourusel.forEach(imgPath => {
+      let arrayOfStrings: string[] = imgPath.split("/");  // /.../.../.../
+      let imgName = arrayOfStrings[arrayOfStrings.length - 1].split(".")[0]; // balka.jpg')".split(".")[0]
+      arrayOfDivsWithImages.push(this.setImageProperties(document.createElement(imgName) as HTMLElement, imgPath));
+      console.log(imgPath);
     });
-
-    this.container = document.getElementById('container') as HTMLDivElement;
-    let containerWidth: any = this.container.offsetWidth;
-    //container.style.width.slice(0,container.style.width.length-2);
-
-    this.err = document.createElement('divError') as HTMLElement;
-    //err.style.backgroundImage = "url('/assets/images/Products/balka.jpg')";
-    this.err.style.width = imageWidth + 'px';
-    this.err.style.height = imageHeight + 'px';
-    this.err.style.marginLeft = marginLeft + 'px';
-    this.err.style.backgroundColor = 'red';
-    this.container.parentElement?.insertBefore(this.err, this.container);
-    this.container.setAttribute("style", "width:" + (this.container.offsetWidth - imageWidth) + "px"); //containerWidth - imageWidth
-    // container.setAttribute("style", "transition: tranform 2s");
-    this.err.addEventListener('mouseover', this.moveImages);
+    return arrayOfDivsWithImages;
   }
-
-  moveImages = (event: MouseEvent) => {
-    var speed = 1,
-      direction = 1,
-      boxLeftPos = this.err.offsetLeft;
-      this.err.style.marginLeft = boxLeftPos + speed + 'px'
-      this.container.setAttribute("style", "width:" + (this.container.offsetWidth - speed - 50) + "px"); //containerWidth - imageWidth
+  setImageProperties(divWithImage: HTMLElement, imgPath:string) {
+    divWithImage.style.backgroundImage = "url('" + imgPath + "')";
+    //"url('/assets/images/Products/balka.jpg')";
+    divWithImage.style.width = 300 + 'px';
+    divWithImage.style.height = 300 + 'px';
+    divWithImage.style.position = 'absolute';
+    divWithImage.style.left = '-300px';  // change to dynamic width of image
+    //divWithImage.style.transitionTimingFunction = 'linear';
+    //divWithImage.style.transitionDuration = '0.5s';//'5s';
+    //divWithImage.style.transition = 'all 0.5s';
+    return divWithImage;
   }
+  moveImage(imageInCourusel: any) {
+    var intervalID = setInterval(() => {
+      var speed = 1;
+      var offsetleft = parseInt(imageInCourusel.offsetLeft);//||0;
+      var offsetright = window.innerWidth - imageInCourusel.offsetLeft - imageInCourusel.offsetWidth
+      imageInCourusel.style.left = (offsetleft + speed) + 'px';
+      if (offsetright <= (-1 * imageInCourusel.offsetWidth)) {
+        clearInterval(intervalID);
+        this.containerWithImages.removeChild(this.containerWithImages.childNodes[0]);//this.imageInCourusel); // ??
+      }
+    },10)
+
+  }
+  // moveImage() {
+  //   var intervalID = setInterval(() => {
+  //     var speed = 100;
+  //     var offsetleft = parseInt(this.imageInCourusel.offsetLeft);//||0;
+  //     var offsetright = window.innerWidth - this.imageInCourusel.offsetLeft - this.imageInCourusel.offsetWidth
+
+  //     this.imageInCourusel.style.left = (offsetleft + (speed)) + 'px';
+  //     if (offsetright <= (-1*this.imageInCourusel.offsetWidth)) {
+  //       clearInterval(intervalID);
+  //       this.containerWithImages.removeChild(this.containerWithImages.childNodes[0]);//this.imageInCourusel); // ??
+  //     }
+  //   })
+
+  // }
 }
+
+
