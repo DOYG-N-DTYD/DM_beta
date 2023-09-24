@@ -41,16 +41,23 @@ export class CarouselComponent {
     this.imagesInCourusel = this.initFIFOforImages();
     this.appentChildsToContainerWithImages();
     this.startCarousel();
+
+    window.addEventListener('resize',this.windowResizeEvent);
+    //this.windowResizeEvent()
   }
- 
-  appentChildsToContainerWithImages(){
-    for(let child of this.imagesInCourusel){
+
+  windowResizeEvent() {
+    this.clearContainerOfNodes;
+    this.imagesInCourusel = this.initFIFOforImages;
+    this.appentChildsToContainerWithImages; 
+  }
+  appentChildsToContainerWithImages() {
+    for (let child of this.imagesInCourusel) {
       this.containerWithImages.appendChild(child);
     }
   }
-  clearContainerOfNodes(){
-    for(let child of this.imagesInCourusel){
-      //this.containerWithImages.appendChild(child);
+  clearContainerOfNodes() {
+    for (let child of this.imagesInCourusel) {
       this.containerWithImages.removeChild(child); // Чистить ноды нужно когда ширина экрана меняется
     }
   }
@@ -78,9 +85,9 @@ export class CarouselComponent {
     var intervalForChild = setInterval(() => {
       tempImageObg = this.imagesInCourusel.shift();
       //this.containerWithImages.appendChild(tempImageObg);
-      this.moveImage(tempImageObg);
+      //this.moveImage(tempImageObg);                           // TODO
       if (tempImageObg.localName == "rdoska") {
-        
+
         clearInterval(intervalForChild);
         this.clearContainerOfNodes();
         this.imagesInCourusel = this.initFIFOforImages();
@@ -106,7 +113,8 @@ export class CarouselComponent {
       var offsetleft = parseInt(imageInCourusel.offsetLeft);//||0;
       var offsetright = window.innerWidth - imageInCourusel.offsetLeft - imageInCourusel.offsetWidth
       imageInCourusel.style.left = (offsetleft + speed) + 'px';
-      console.log("INTERVAL IMAGE MOVE");
+      console.log(imageInCourusel.style.right);
+      // if (offsetright = 0) imageInCourusel.style.width = imageInCourusel.style.width - 1;
       if (offsetright <= (-1 * imageInCourusel.offsetWidth)) {
         clearInterval(intervalImageMove);
         //this.containerWithImages.removeChild(this.containerWithImages.childNodes[0]);//this.imageInCourusel); // ??
