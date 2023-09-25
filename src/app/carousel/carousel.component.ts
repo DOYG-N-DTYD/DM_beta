@@ -58,7 +58,7 @@ export class CarouselComponent {
   }
   clearContainerOfNodes() {
     for (let child of this.imagesInCourusel) {
-      this.containerWithImages.removeChild(child); // Чистить ноды нужно когда ширина экрана меняется
+      this.containerWithImages.removeChild(child); // Чистить ноды нужно когда ширина экрана меняется TODO
     }
   }
 
@@ -73,7 +73,6 @@ export class CarouselComponent {
   }
   setImageProperties(divWithImage: HTMLElement, imgPath: string) {
     divWithImage.style.backgroundImage = "url('" + imgPath + "')";
-    //"url('/assets/images/Products/balka.jpg')";
     divWithImage.style.width = 300 + 'px';
     divWithImage.style.height = 300 + 'px';
     divWithImage.style.position = 'absolute';
@@ -94,18 +93,7 @@ export class CarouselComponent {
         this.appentChildsToContainerWithImages();
         this.startCarousel();
       }
-      console.log("INTERVAL START CAROUSEL");
-      // if (this.containerWithImages.childNodes.length == 8) {
-      //   // for (var child in this.containerWithImages.childNodes) {
-      //   //   console.log(1111, this.containerWithImages.childNodes[child]);
-      //   //   this.containerWithImages.removeChild(this.containerWithImages.childNodes[child]);
-      //   // }
-      //   //rdoska
-      //   clearInterval(intervalForChild);
-      // }
     }, 3500)
-
-    //this.startCarousel();
   }
   moveImage(imageInCourusel: any) {
     var intervalImageMove = setInterval(() => {
@@ -114,28 +102,12 @@ export class CarouselComponent {
       var offsetright = window.innerWidth - imageInCourusel.offsetLeft - imageInCourusel.offsetWidth
       imageInCourusel.style.left = (offsetleft + speed) + 'px';
       console.log(imageInCourusel.style.right);
-      // if (offsetright = 0) imageInCourusel.style.width = imageInCourusel.style.width - 1;
       if (offsetright <= (-1 * imageInCourusel.offsetWidth)) {
         clearInterval(intervalImageMove);
-        //this.containerWithImages.removeChild(this.containerWithImages.childNodes[0]);//this.imageInCourusel); // ??
         this.imagesInCourusel.push(imageInCourusel);
       }
     }, 10)
   }
-  // moveImage() {
-  //   var intervalID = setInterval(() => {
-  //     var speed = 100;
-  //     var offsetleft = parseInt(this.imageInCourusel.offsetLeft);//||0;
-  //     var offsetright = window.innerWidth - this.imageInCourusel.offsetLeft - this.imageInCourusel.offsetWidth
-
-  //     this.imageInCourusel.style.left = (offsetleft + (speed)) + 'px';
-  //     if (offsetright <= (-1*this.imageInCourusel.offsetWidth)) {
-  //       clearInterval(intervalID);
-  //       this.containerWithImages.removeChild(this.containerWithImages.childNodes[0]);//this.imageInCourusel); // ??
-  //     }
-  //   })
-
-  // }
 }
 
 
