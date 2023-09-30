@@ -10,6 +10,8 @@ export class CarouselComponent {
   public carouselImages: any;
   public imageInCourusel: any;
   public imagesInCourusel: any;
+  public intervalForChild: any;
+  public intervalImageMove: any;
   public pathsToImageInCourusel: string[] = [
     '/assets/images/Products/balka.jpg',
     '/assets/images/Products/brusok.jpg',
@@ -34,6 +36,8 @@ export class CarouselComponent {
   }
 
   ngOnInit() {
+    document.addEventListener('visibilitychange',this.actionOnFocus.bind(this));
+
     this.containerWithImages = document.getElementById('container') as HTMLDivElement;
     this.carousel = document.getElementById('carousel') as HTMLDivElement;
     this.containerWithImages.setAttribute("style", "width:" + (this.containerWithImages.offsetWidth - 300) + "px"); //300
@@ -42,14 +46,23 @@ export class CarouselComponent {
     this.appentChildsToContainerWithImages();
     this.startCarousel();
 
-    window.addEventListener('resize',this.windowResizeEvent);
+    //window.addEventListener('resize',this.windowResizeEvent);
     //this.windowResizeEvent()
   }
-
-  windowResizeEvent() {
-    this.clearContainerOfNodes;
-    this.imagesInCourusel = this.initFIFOforImages;
-    this.appentChildsToContainerWithImages; 
+  actionOnFocus(){
+    //clear old
+    // add new
+    if (document.visibilityState === 'visible') {
+      this.stopCarousel();
+      // console.log("ACTION ON FOCUS");
+      this.clearContainerOfNodes();
+      // this.imagesInCourusel = this.initFIFOforImages();
+      // this.appentChildsToContainerWithImages();
+    }
+  }
+  stopCarousel(){
+    clearInterval(this.intervalForChild);
+    clearInterval(this.intervalImageMove);
   }
   appentChildsToContainerWithImages() {
     for (let child of this.imagesInCourusel) {
@@ -58,6 +71,7 @@ export class CarouselComponent {
   }
   clearContainerOfNodes() {
     for (let child of this.imagesInCourusel) {
+      console.log("child removed",child);
       this.containerWithImages.removeChild(child); // Чистить ноды нужно когда ширина экрана меняется TODO
     }
   }
@@ -81,13 +95,13 @@ export class CarouselComponent {
   }
   startCarousel() {
     var tempImageObg;
-    var intervalForChild = setInterval(() => {
+    this.intervalForChild = setInterval(() => {
       tempImageObg = this.imagesInCourusel.shift();
-      //this.containerWithImages.appendChild(tempImageObg);
-      //this.moveImage(tempImageObg);                           // TODO
+      this.containerWithImages.appendChild(tempImageObg);     // ADD in clear methods all shifted intervals ?
+      this.moveImage(tempImageObg);                           // TODO
       if (tempImageObg.localName == "rdoska") {
 
-        clearInterval(intervalForChild);
+        clearInterval(this.intervalForChild);
         this.clearContainerOfNodes();
         this.imagesInCourusel = this.initFIFOforImages();
         this.appentChildsToContainerWithImages();
@@ -96,14 +110,14 @@ export class CarouselComponent {
     }, 3500)
   }
   moveImage(imageInCourusel: any) {
-    var intervalImageMove = setInterval(() => {
+    this.intervalImageMove = setInterval(() => {
       var speed = 1;
       var offsetleft = parseInt(imageInCourusel.offsetLeft);//||0;
       var offsetright = window.innerWidth - imageInCourusel.offsetLeft - imageInCourusel.offsetWidth
       imageInCourusel.style.left = (offsetleft + speed) + 'px';
       console.log(imageInCourusel.style.right);
       if (offsetright <= (-1 * imageInCourusel.offsetWidth)) {
-        clearInterval(intervalImageMove);
+        clearInterval(this.intervalImageMove);
         this.imagesInCourusel.push(imageInCourusel);
       }
     }, 10)
